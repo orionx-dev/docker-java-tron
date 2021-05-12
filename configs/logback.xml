@@ -10,7 +10,7 @@
 <pattern>%d{HH:mm:ss.SSS} %-5level [%t] [%c{1}]\(%F:%L\) %m%n</pattern>
 </encoder>
 <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
-<level>INFO</level>
+<level>WARN</level>
 </filter>
 </appender>
 
@@ -45,22 +45,22 @@
     <appender-ref ref="FILE"/>
 </appender>
 
-<root level="INFO">
+<root level="WARN">
     <appender-ref ref="STDOUT"/>
     <!--<appender-ref ref="ASYNC"/>-->
 </root>
 
-<logger name="app" level="INFO"/>
-<logger name="net" level="INFO"/>
-<logger name="backup" level="INFO"/>
-<logger name="discover" level="INFO"/>
-<logger name="crypto" level="INFO"/>
-<logger name="utils" level="INFO"/>
-<logger name="actuator" level="INFO"/>
-<logger name="API" level="INFO"/>
-<logger name="witness" level="INFO"/>
-<logger name="DB" level="INFO"/>
-<logger name="capsule" level="INFO"/>
-<logger name="VM" level="INFO"/>
+<logger name="app" level="WARN"/>
+<logger name="net" level="WARN"/>
+<logger name="backup" level="WARN"/>
+<logger name="discover" level="WARN"/>
+<logger name="crypto" level="WARN"/>
+<logger name="utils" level="WARN"/>
+<logger name="actuator" level="WARN"/>
+<logger name="API" level="WARN"/>
+<logger name="witness" level="WARN"/>
+<logger name="DB" level="WARN"/>
+<logger name="capsule" level="WARN"/>
+<logger name="VM" level="WARN"/>
 
 </configuration>
