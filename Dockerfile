@@ -19,10 +19,18 @@ RUN cd event-plugin && \
 
 FROM openjdk:8-jre
 
+RUN apt-get update
+
+RUN apt-get install jq -y
+
 COPY --from=build /src/java-tron/build/libs/FullNode.jar /usr/local/tron/FullNode.jar
+
 COPY --from=build-plugin /src/event-plugin/build/plugins/ /usr/local/tron/plugins/
+
 COPY ./configs/ /etc/tron/
 
 COPY ./entry.sh /usr/bin/entry.sh
+
+COPY ./liveness.sh /etc/tron/liveness.sh
 
 ENTRYPOINT [ "entry.sh" ]
