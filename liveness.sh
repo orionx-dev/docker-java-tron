@@ -1,4 +1,4 @@
-LAST_BLOCK=$(curl http://localhost:8090/wallet/getnowblock | jq -r '.block_header.raw_data.number')
+LAST_BLOCK=$(curl http://localhost:8090/wallet/getnowblock -m 50 | jq -r '.block_header.raw_data.number')
 
 if [[ ${LAST_BLOCK} == '' ]];  then
     1>&2 echo "Node http requests broken... Restarting"
@@ -9,7 +9,7 @@ echo "Last block: ${LAST_BLOCK}" >&2
 
 sleep 100
 
-NEW_BLOCK=$(curl http://localhost:8090/wallet/getnowblock | jq -r '.block_header.raw_data.number')
+NEW_BLOCK=$(curl http://localhost:8090/wallet/getnowblock -m 50 | jq -r '.block_header.raw_data.number')
 
 echo "New block: ${NEW_BLOCK}" >&2
 
